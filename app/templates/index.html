@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pneunet - Cloud Computing Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="p-8">
+    <div class="max-w-4xl mx-auto">
+      <header class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-800 mb-4">Pneunet</h1>
+        <p class="text-xl text-gray-600">Cloud Computing Project</p>
+      </header>
+
+      <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Project Overview Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Project Overview
+          </h2>
+          <p class="text-gray-600 mb-4">
+            This project demonstrates the implementation of a cloud-based
+            application using FastAPI and Docker.
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-2">
+            <li>FastAPI Backend</li>
+            <li>Docker Containerization</li>
+            <li>Modern Web Interface</li>
+            <li>Cloud-Ready Architecture</li>
+          </ul>
+        </div>
+
+        <!-- API Status Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">API Status</h2>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+              <span class="text-gray-600">API is running</span>
+            </div>
+            <div class="text-gray-600">
+              <p>
+                Endpoint:
+                <code class="bg-gray-100 px-2 py-1 rounded">/api/v1/</code>
+              </p>
+              <p>Status: <span class="text-green-500">Active</span></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Quick Links</h2>
+          <div class="space-y-3">
+            <a href="/docs" class="block text-blue-600 hover:text-blue-800"
+              >API Documentation</a
+            >
+            <a href="/redoc" class="block text-blue-600 hover:text-blue-800"
+              >Alternative API Docs</a
+            >
+            <a
+              href="https://github.com/yourusername/pneunet"
+              class="block text-blue-600 hover:text-blue-800"
+              >GitHub Repository</a
+            >
+          </div>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="card p-6">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact</h2>
+          <div class="space-y-3">
+            <p class="text-gray-600">For questions or support:</p>
+            <a
+              href="mailto:your.email@example.com"
+              class="block text-blue-600 hover:text-blue-800"
+              >your.email@example.com</a
+            >
+            <p class="text-gray-600">Project maintained by:</p>
+            <p class="text-gray-800 font-medium">Your Name</p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="mt-12 text-center text-gray-600">
+        <p>&copy; 2024 Pneunet. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
