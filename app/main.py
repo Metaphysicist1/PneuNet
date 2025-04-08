@@ -5,7 +5,6 @@ from pathlib import Path
 
 app = FastAPI()
 
-# Set up templates
 templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
