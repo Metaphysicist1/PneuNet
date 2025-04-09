@@ -5,7 +5,7 @@ from app.logger import setup_logger
 # Set up a test-specific logger
 logger = setup_logger("test")
 
-client = TestClient(app)
+client = TestClient(app=app)
 
 
 def test_read_app():
