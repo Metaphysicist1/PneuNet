@@ -23,7 +23,7 @@ async def shutdown_event():
 @app.get("/")
 async def home(request: Request):
     logger.info("Home page requested")
-    return templates.TemplateResponse(request, "index.html")
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 if __name__ == "__main__":
