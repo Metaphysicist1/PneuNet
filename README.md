@@ -8,10 +8,18 @@ A FastAPI-based web application for medical image analysis, specifically focused
 .
 ├── app/                    # Main application directory
 │   ├── main.py            # FastAPI application entry point
+│   ├── logger.py          # Logging configuration
 │   └── templates/         # HTML templates
+├── tests/                 # Test directory
+│   └── test_main.py       # Application tests
 ├── data/                  # Data directory for storing images and models
+├── logs/                  # Application logs
+├── .github/              # GitHub configuration
+│   └── workflows/        # CI/CD workflows
 ├── dockerfile            # Docker configuration
 ├── requirements.txt      # Python dependencies
+├── pytest.ini           # PyTest configuration
+├── .env                 # Environment variables
 └── README.md            # Project documentation
 ```
 
@@ -21,10 +29,13 @@ A FastAPI-based web application for medical image analysis, specifically focused
 - Web interface for image upload and analysis
 - Deep learning model integration for pneumonia detection
 - Docker support for containerized deployment
+- Automated testing with PyTest
+- CI/CD pipeline with GitHub Actions
+- Comprehensive logging system
 
 ## Prerequisites
 
-- Python 3.8 or higher
+- Python 3.10 or higher
 - Docker (optional, for containerized deployment)
 
 ## Installation
@@ -75,6 +86,26 @@ docker build -t pneunet .
 docker run -p 8000:8000 pneunet
 ```
 
+## Testing
+
+The project uses PyTest for testing. To run the tests:
+
+```bash
+pytest tests/ -v
+```
+
+Test logs are automatically generated in the `logs/` directory.
+
+## CI/CD Pipeline
+
+The project includes a GitHub Actions workflow that:
+
+- Runs on push to main branch and pull requests
+- Sets up Python 3.10
+- Installs dependencies
+- Runs tests
+- Uploads test logs as artifacts
+
 ## API Endpoints
 
 - `GET /`: Web interface
@@ -82,8 +113,14 @@ docker run -p 8000:8000 pneunet
 
 ## Development
 
-The project uses FastAPI for the backend and Jinja2 for templating. The main application logic is in `app/main.py`.
+The project uses:
+
+- FastAPI for the backend
+- Jinja2 for templating
+- PyTest for testing
+- GitHub Actions for CI/CD
+- Custom logging configuration
 
 ## Contributing
 
-Write me <b>edgarabasov1@gmail.com<b>
+Write me <b>edgarabasov1@gmail.com</b>
