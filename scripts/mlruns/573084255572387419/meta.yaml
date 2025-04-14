@@ -1,0 +1,6 @@
+artifact_location: file:///home/metaphysicist/Coding/2025/fh-kiel/Cloud-Computing/Project/scripts/mlruns/573084255572387419
+creation_time: 1744573168323
+experiment_id: '573084255572387419'
+last_update_time: 1744573168323
+lifecycle_stage: active
+name: pneumonia_detection_mobilenetv2
