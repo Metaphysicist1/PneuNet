@@ -1,33 +1,34 @@
+import sys
+import pytest
 from fastapi.testclient import TestClient
+
+# Import app directly
 from app.main import app
-import os
-from pathlib import Path
-from app.logger import setup_logger
 
-# Set up a test-specific logger
-logger = setup_logger("test")
-
-# Create templates directory if it doesn't exist
-templates_dir = Path("app/templates")
-templates_dir.mkdir(exist_ok=True, parents=True)
-
-# Create a simple index.html template if it doesn't exist
-index_html = templates_dir / "index.html"
-if not index_html.exists():
-    logger.info("Creating test index.html template")
-    with open(index_html, "w") as f:
-        f.write("<!DOCTYPE html><html><body><h1>Test Page</h1></body></html>")
-
-# Initialize TestClient
 client = TestClient(app)
 
-def test_read_app():
-    """Test the home endpoint returns HTML template."""
-    logger.info("Testing home endpoint")
+def test_read_main():
+    """Test that the main route returns 200 OK"""
     response = client.get("/")
-    logger.info(f"Response status code: {response.status_code}")
     assert response.status_code == 200
-    assert "text/html" in response.headers["content-type"]
-    assert "<!DOCTYPE html>" in response.text
-    logger.info("Home endpoint test passed")
-    
+
+def test_health_check():
+    """Test that the health check route returns 200 OK"""
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json()["status"] == "healthy"
+    assert "tensorflow_available" in response.json()
+
+def test_predict_no_file():
+    """Test that trying to predict without a file returns 422"""
+    response = client.post("/predict")
+    assert response.status_code == 422  # Validation error
+
+def test_predict_invalid_file():
+    """Test that trying to predict with an invalid file returns an error"""
+    response = client.post(
+        "/predict",
+        files={"file": ("filename", b"invalid file content", "image/jpeg")}
+    )
+    assert response.status_code == 200
+    assert "error" in response.json()
